@@ -1,11 +1,5 @@
 # DijkstraIndexing
 
-[![Build Status](https://travis-ci.org/classner/DijkstraIndexing.jl.svg?branch=master)](https://travis-ci.org/classner/DijkstraIndexing.jl)
-
-[![Coverage Status](https://coveralls.io/repos/classner/DijkstraIndexing.jl/badge.svg?branch=master&service=github)](https://coveralls.io/github/classner/DijkstraIndexing.jl?branch=master)
-
-[![codecov.io](http://codecov.io/github/classner/DijkstraIndexing.jl/coverage.svg?branch=master)](http://codecov.io/github/classner/DijkstraIndexing.jl?branch=master)
-
 Julia made the choice to use a 1-based indexing scheme with closed intervals.
 This makes the move from MATLAB to Julia easier. For some algorithms and for
 porting code from other languages, e.g. Python, it may make sense to on-demand
@@ -44,7 +38,7 @@ after the last array element, making the notation concise. That means, that
 `A[end]` will throw an exception and the last sequence element is accessed with
 `A[end-1]` (this is consistent with, e.g., Python access for A[-1]).
 
-### Why not custom-index arrays
+### Why not custom-index arrays?
 
 See [here](https://en.wikipedia.org/wiki/Zero-based_numbering). If you can
 create your own objects and use them in your own library, this may be the best
