@@ -33,10 +33,11 @@ end
 @assert d == 2
 ```
 
-Slicing expressions are exclusive in the macro and `end` refers to the position
-after the last array element, making the notation concise. That means, that
-`A[end]` will throw an exception and the last sequence element is accessed with
-`A[end-1]` (this is consistent with, e.g., Python access for A[-1]).
+Slicing expressions are half-open intervals, including start and excluding the
+end. Steps are supported. `end` refers to the position after the last array
+element, making the notation concise. That means, that `A[end]` will throw an
+exception and the last sequence element is accessed with `A[end-1]` (this is
+consistent with, e.g., Python access for A[-1]).
 
 ### Why not custom-index arrays?
 
