@@ -40,7 +40,7 @@ after the last array element, making the notation concise. That means, that
 
 ### Why not custom-index arrays?
 
-See [here](https://gist.github.com/albop/7525675). If you can
+See [here](https://github.com/JuliaLang/julia/pull/16260). If you can
 create your own objects and use them in your own library, this may be the best
 solution. If you receive objects to index from another library, however, and do
 not want to wrap them or pass them on to a library that doesn't support these
