@@ -30,3 +30,16 @@ B = range(0, 9);
 # Indirect reference.
 @dsindex e = A[B[0 * 2] + 1];
 @assert e == 2;
+
+# ND.
+C = zeros((3, 3));
+@dsindex f = C[0, 0];
+@assert f == 0
+
+# Colon selection.
+@dsindex g = C[0, :];
+@assert g == [0, 0, 0]
+
+# Colon usage.
+@dsindex h = 0:3;
+@assert h == 0:2

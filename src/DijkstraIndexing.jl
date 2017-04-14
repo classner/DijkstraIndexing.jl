@@ -7,8 +7,15 @@ rewrite(x::Symbol) = x;
 rewrite(x::String) = x;
 function rewrite(expr)
     if expr.head == :ref
-        return Expr(expr.head, expr.args[1],
-                    [rewrite(:(1 + $arg)) for arg in expr.args[2:end]]...)
+        rewr_list = []
+        for arg in expr.args[2:end]
+            if arg == :(:)
+                push!(rewr_list, :(:));
+            else
+                push!(rewr_list, rewrite(:(1 + $arg)));
+            end
+        end
+        return Expr(expr.head, expr.args[1], rewr_list...);
     elseif expr.head == :(:)
         argl = [rewrite(:(0+$(expr.args[1])))];
         if length(expr.args) == 3
