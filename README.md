@@ -31,6 +31,11 @@ B = range(1, 2);
 end
 @assert c == 1
 @assert d == 2
+
+# ND-Arrays.
+C = zeros((3, 3))
+@dsindex e = C[0, 0];
+@assert e == 0
 ```
 
 Slicing expressions are half-open intervals, including start and excluding the
