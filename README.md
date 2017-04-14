@@ -3,10 +3,10 @@
 Julia made the choice to use a 1-based indexing scheme with closed intervals.
 This makes the move from MATLAB to Julia easier. For some algorithms and for
 porting code from other languages, e.g. Python, it may make sense to on-demand
-switch to a 0-based indexing scheme. This package provides a macro to provide
-this functionality in a hassle-free and explicit way. Renowned computer
-scientist Edsger W. Dijkstra wrote a short article about the indexing schemes
-arguing for a 0-based half-open one
+switch to a 0-based indexing scheme with half-open intervals. This package
+provides a macro to provide this functionality in a hassle-free and explicit
+way. Renowned computer scientist Edsger W. Dijkstra wrote a short article
+arguing for this indexing scheme
 (see
 [here](http://www.cs.utexas.edu/users/EWD/transcriptions/EWD08xx/EWD831.html)
 and for more information about the
