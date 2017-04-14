@@ -1,5 +1,32 @@
 using DijkstraIndexing
 using Base.Test
 
-# write your own tests here
-@test 1 == 2
+# Scoping.
+A = range(0, 3);
+@dsindex b = A[0];
+@test b == 0
+A = range(1, 3);
+@dsindex b = A[0];
+@test b == 1
+
+# `end` usage.
+@dsindex b = A[end - 1];
+@test b == 3
+
+# Colon indexing.
+@dsindex c = A[0:end];
+@test c == range(1, 3);
+@dsindex c = A[1:end];
+@test c == range(2, 2);
+@dsindex c = A[1:end-1];
+@test c == range(2, 1);
+# Step size.
+B = range(0, 9);
+@dsindex d = B[0:2:end];
+@test d == 0:2:8;
+@dsindex d = B[1:2:end];
+@test d == 1:2:7;
+
+# Indirect reference.
+@dsindex e = A[B[0 * 2] + 1];
+@assert e == 2;
