@@ -19,6 +19,8 @@ The module only exposes the macro `@dsindex`. It can be used on an environment
 or single expression and always works with the local variables:
 
 ```
+using DijkstraIndexing
+
 A = range(0, 3);
 @dsindex b = A[0];
 @assert b == 0
@@ -30,7 +32,7 @@ B = range(1, 2);
   d = B[1:end];
 end
 @assert c == 1
-@assert d == 2
+@assert d == 2:2
 
 # ND-Arrays.
 C = zeros((3, 3))
