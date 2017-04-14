@@ -1,11 +1,12 @@
 # DijkstraIndexing
 
-Julia made the choice to use a 1-based indexing scheme with closed intervals.
-This makes the move from MATLAB to Julia easier. For some algorithms and for
-porting code from other languages, e.g. Python, it may make sense to on-demand
-switch to a 0-based indexing scheme with half-open intervals. This package
-provides a macro to provide this functionality in a hassle-free and explicit
-way. Renowned computer scientist Edsger W. Dijkstra wrote a short article
+Julia made the choice to use a 1-based indexing scheme with a two-side
+including interval specification. This makes the transition from MATLAB to Julia easier.
+For some algorithms and for porting code from other languages, e.g. Python,
+it may make sense to on-demand switch to a 0-based indexing scheme with an
+end-excluding interval specification. This package provides
+this functionality in a hassle-free and explicit way using a macro.
+Renowned computer scientist Edsger W. Dijkstra wrote a short article
 arguing for this indexing scheme
 (see
 [here](http://www.cs.utexas.edu/users/EWD/transcriptions/EWD08xx/EWD831.html)
@@ -40,18 +41,18 @@ C = zeros((3, 3))
 @assert e == 0
 ```
 
-Slicing expressions are half-open intervals, including start and excluding the
-end. Steps are supported. `end` refers to the position after the last array
+Slicing expressions are end-excluding.
+Steps != 1 are supported. `end` refers to the position after the last array
 element, making the notation concise. That means, that `A[end]` will throw an
 exception and the last sequence element is accessed with `A[end-1]` (this is
 consistent with, e.g., Python access for A[-1]).
 
 ### Why not custom-index arrays?
 
-See [here](https://github.com/JuliaLang/julia/pull/16260). If you can
+For the pull request, see [here](https://github.com/JuliaLang/julia/pull/16260). If you can
 create your own objects and use them in your own library, this may be the best
-solution. If you receive objects to index from another library, however, and do
-not want to wrap them or pass them on to a library that doesn't support these
+solution. If you receive objects to work with from another library, however, and do
+not want to wrap them or have to pass objects to a library that doesn't support
 general iterators (yet), problems may arise.
 
 ### Is there a performance overhead?
